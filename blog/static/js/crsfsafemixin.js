@@ -1,7 +1,9 @@
 define(function(){
 
 	"use strict";
-
+	/**
+	 * @constructor CrsfSafeMixin
+	 */
 	var CrsfSafeMixin = function () {};
 
 	CrsfSafeMixin.prototype = {
@@ -24,7 +26,7 @@ define(function(){
 				// or any other URL that isn't scheme relative or absolute i.e relative.
 				!(/^(\/\/|http:|https:).*/.test(url));
 		}
-		
+
 	};
 
 	return CrsfSafeMixin;

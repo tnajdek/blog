@@ -1,0 +1,27 @@
+{% if form %}
+
+	<form action="." method="post" class="form-horizontal">{% csrf_token %}
+
+		{% for field in form %}
+
+			{% ifequal field.name "name" %}
+				<div class="control-group">
+					<input id="id_name" name="name" type="text" id="inputEmail" placeholder="{{ field.name }}" />
+				</div>
+			{% endifequal %}
+
+			{% ifequal field.name "comment" %}
+				<div class="control-group">
+					<textarea rows="3" placeholder="{{ field.name }}"></textarea>
+				</div>
+			{% endifequal %}
+
+		{% endfor %}
+
+		{{ form.as_p }}
+
+		<button class="btn" type="submit">Post</button>
+
+	</form>
+
+{% endif %}

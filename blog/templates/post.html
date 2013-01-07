@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+{% load templatetag_handlebars %}
+
+<div class="blogitem">
+
+	<h2> {{ post.title }} </h2>
+
+		<p class="blog_meta">
+			Posted by Ms Coco on {{ post.created|date:"l d F Y" }}
+			<span class="meta tags">
+				<i class="icon-tag"></i>
+				{% for tag in post.tags.all %}
+					<a href="/tag/{{tag}}">{{tag}}</a>{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</span>
+			<span class="meta comments">
+				<i class="icon-comment"></i> 
+				<!-- <a href="#"> -->
+					{% if comments %}
+						{{comments|length}} comment{{ comments|pluralize }}
+					{% else %}
+						No comments
+					{% endif %}
+				<!-- </a> -->
+			</span>				
+		</p>
+
+	<div class="post_body">
+		{{ post.body|safe|linebreaks }}
+	</div>
+
+</div>
+	
+	<!-- commments -->
+	<ul id="comments" class = "comments-list">
+		{% if comments %}
+				{% for comment in comments %}
+					<li class="comment">
+						<div class="time">
+							{{ comment.posted_on }} | {{ comment.author }}
+						</div>
+						<div class="body">
+							{{ comment.body|linebreaks }}
+						</div>
+					</li>
+				{% endfor %}
+		{% endif %}
+	</ul>
+
+	{% tplhandlebars "comment-template" %}
+		<li>
+			<div class="time">
+				{{ posted_on }} | {{ author }}
+			</div>
+			<div class="body">
+				{{ body }}
+			</div>
+		</li>
+	{% endtplhandlebars %}
+
+<!-- form -->
+	
+{% if form %}
+
+	<form action="{% url blog.views.add_comment post.id %}" method="post" class="form-horizontal">
+		{% csrf_token %}
+
+<!-- 		{% for field in form %}
+
+			{% ifequal field.name "name" %}
+				<div class="control-group">
+					<input id="id_name" name="name" type="text" id="inputEmail" placeholder="{{ field.name }}" />
+				</div>
+			{% endifequal %}
+
+			{% ifequal field.name "comment" %}
+				<div class="control-group">
+					<textarea rows="3" placeholder="{{ field.name }}"></textarea>
+				</div>
+			{% endifequal %}
+
+		{% endfor %} -->
+
+		{{ form.as_p }}
+
+		<button class="btn" type="submit" disabled>Post</button>
+
+	</form>
+
+{% endif %}
+
+<script type="text/javascript">
+
+	require(["comment"], function(c) {
+		var c = new c();
+	});
+
+</script>
+{% endblock %}

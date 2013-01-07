@@ -1,0 +1,33 @@
+<form action="." method="post" class="form-horizontal">{% csrf_token %}
+{% comment_form_target %}
+	{% if next %}
+		<div>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</div>
+	{% endif %}
+
+	{% for field in form %}
+		{% if field.is_hidden %}
+			<div>{{ field }}</div>
+		{% else %}
+			{% if field.errors %}{{ field.errors }}{% endif %}
+
+			{% if field.errors %} class="error"{% endif %}
+
+					{% ifequal field.name "name" %}
+						<div class="control-group">
+							<input id="id_name" name="name" type="text" id="inputEmail" placeholder="{{ field.name }}" />
+						</div>
+					{% endifequal %}
+
+					{% ifequal field.name "comment" %}
+						<div class="control-group">
+							<textarea rows="3" placeholder="{{ field.name }}"></textarea>
+						</div>
+					{% endifequal %}
+		{% endif %}
+
+	{% endfor %}
+
+	<button class="btn" type="submit">Post</button>
+</form>

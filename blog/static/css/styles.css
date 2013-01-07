@@ -1,0 +1,48 @@
+ul {
+	list-style: none;
+}
+
+ul.bloglist {}
+
+ul.bloglist li {
+	border-bottom: 1px dashed #CFCFCF;
+	padding: 0 5px 10px 0;
+}
+
+ul.bloglist li.blogitem h2, .blogitem h2 {
+	text-shadow: 0px 1px 0px #000;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+ul.bloglist li h2 a{
+	color: #444;
+	text-decoration: none;
+}
+
+p a.read-more {
+	font-size: 12px
+}
+
+span.comments {
+}
+
+i.icon-comment {
+	color: red;
+}
+
+span.meta {
+	margin-left: 13px;
+}
+
+p.blog_meta {
+	margin: 7px 0 12px 0;
+	font-size: 12px;
+}
+
+ul.comments-list {
+	margin-left: 0;
+	/*list-style: none;*/
+}

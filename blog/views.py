@@ -12,7 +12,6 @@ from blog.forms import CommentForm
 
 def index(request):
 	posts = Post.objects.all().order_by("-created")
-	# return render_to_response("index.html", {"posts":posts}, context_instance=RequestContext(request))
 	return object_list(request, template_name = 'index.html',
 		queryset = posts, paginate_by = 2)
 

@@ -1,8 +1,43 @@
+/* Bootstrap overrides */
+
+/* custom */
+
+body {
+	background-image: url("https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png");
+	background-attachment: fixed;
+	background-color: #C0DEED;
+	background-position: left 40px;
+	background-repeat: no-repeat;
+}
+
+.wrap {
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	width: 940px;
+	z-index: 0;
+}
+
+.content, .module {
+	background-color: white;
+	margin: 10px 0 10px 10px;
+	padding: 8px;
+}
+
+.module {
+	margin-right: 0px;	
+}
+
+.margin-left-10 {
+	width: 229px;
+	margin-left: 0px;
+}
 ul {
 	list-style: none;
 }
 
-ul.bloglist {}
+ul.bloglist {
+	margin: 0;
+}
 
 ul.bloglist li {
 	border-bottom: 1px dashed #CFCFCF;

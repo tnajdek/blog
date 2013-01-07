@@ -19,24 +19,14 @@ var Utils = {
 		return cookieValue;
 	},
 
-	extend: function (destination, source) {
-		for (var k in source) {
-			if (source.hasOwnProperty(k)) {
-					destination[k] = source[k];
-				}
-			}
-		return destination; 
-	},
-
 	registerComponent: function (name, constr) {
-		// var componentName = 'd' + name;
-		// window[name] = constr;	
-		console.log(typeof constr);
+
 		if (typeof constr !== 'undefined' && typeof constr === "function") {
 			window[name] = constr;
 		}
 	},
 
+	// Jacked from http://addyosmani.com/resources/essentialjsdesignpatterns/book/#mixinpatternjavascript by the G Addy Osmani
 	// Extend an existing object with a method from another
 	augment: function ( receivingClass, givingClass ) {
  

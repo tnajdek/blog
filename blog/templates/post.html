@@ -17,13 +17,11 @@
 			</span>
 			<span class="meta comments">
 				<i class="icon-comment"></i> 
-				<!-- <a href="#"> -->
-					{% if comments %}
-						{{comments|length}} comment{{ comments|pluralize }}
-					{% else %}
-						No comments
-					{% endif %}
-				<!-- </a> -->
+				{% if comments %}
+					{{comments|length}} comment{{ comments|pluralize }}
+				{% else %}
+					No comments
+				{% endif %}
 			</span>				
 		</p>
 
@@ -67,22 +65,6 @@
 	<form action="{% url blog.views.add_comment post.id %}" method="post" class="form-horizontal">
 		{% csrf_token %}
 
-<!-- 		{% for field in form %}
-
-			{% ifequal field.name "name" %}
-				<div class="control-group">
-					<input id="id_name" name="name" type="text" id="inputEmail" placeholder="{{ field.name }}" />
-				</div>
-			{% endifequal %}
-
-			{% ifequal field.name "comment" %}
-				<div class="control-group">
-					<textarea rows="3" placeholder="{{ field.name }}"></textarea>
-				</div>
-			{% endifequal %}
-
-		{% endfor %} -->
-
 		{{ form.as_p }}
 
 		<button class="btn" type="submit" disabled>Post</button>
@@ -98,4 +80,5 @@
 	});
 
 </script>
+
 {% endblock %}

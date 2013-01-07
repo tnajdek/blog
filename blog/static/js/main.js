@@ -1,14 +1,12 @@
 require.config({
 	paths: {
-		"jquery": "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min" 
+		"jquery": "libs/require-jquery"
 	},
 	shim: {
 	// 'bootstrap': ['jquery']
 	}
 });
 
-require(["jquery", "bootstrap"], function($) {
-	// $(function() {
-
-	// });
+require(["jquery", "bootstrap"], function ($) {
+	"use strict";
 });

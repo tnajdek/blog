@@ -7,7 +7,7 @@
 	optimize: "none",
 
 	paths: {
-		"handlebars": "libs/handlebars.js",
+		"handlebars": "libs/handlebars",
 		"jquery": "libs/require-jquery",
 		"bootstrap": "libs/bootstrap.min"
 	},

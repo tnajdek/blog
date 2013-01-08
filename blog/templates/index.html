@@ -31,9 +31,10 @@
 
 			<div class="post_body">
 				{{ post.body|safe|linebreaks|truncatewords:'75' }}
-				<p> <a href="{{post.get_absolute_url}}" class="cont"> Read more &raquo;</a> </p>
+				<p> <a href="{{post.get_absolute_url}}" class="cont"> read more &raquo;</a> </p>
 			</div>
 		</li>
+		<!-- <div class="separator">&hearts;</div> -->
 	{% endfor %}
 
 </ul>

@@ -81,3 +81,11 @@ ul.comments-list {
 	margin-left: 0;
 	/*list-style: none;*/
 }
+
+.separator {
+	text-align: center;
+/*	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	margin:1.5em 0;
+	text-shadow: white 0px 1px 0px;*/
+}

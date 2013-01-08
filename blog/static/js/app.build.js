@@ -1,16 +1,12 @@
 ({
 	appDir: "../",
 	baseUrl: "static/js",
-	dir: "../../webapp-build",
+	dir: "static/js",
 	//Comment out the optimize line if you want
 	//the code minified by UglifyJS.
 	optimize: "none",
 
-	paths: {
-		"handlebars": "libs/handlebars",
-		"jquery": "libs/require-jquery",
-		"bootstrap": "libs/bootstrap.min"
-	},
+	paths: {},
 
 	modules: [
 		{

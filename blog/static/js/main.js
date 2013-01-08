@@ -1,6 +1,8 @@
 require.config({
 	paths: {
-		"jquery": "libs/require-jquery"
+		"jquery": "libs/require-jquery",
+		"bootstrap": "libs/bootstrap.min",
+		"handlebars": "libs/handlebars"
 	},
 	shim: {
 	// 'bootstrap': ['jquery']

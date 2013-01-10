@@ -7,11 +7,10 @@ from django import template
 register = template.Library()
 
 @register.inclusion_tag('archive.html')
-# @register.filter
 def archive_dict():
 	"""Make a list of months to show archive links."""
 
-	# if not Post.objects.count(): return {}
+	if not Post.objects.count(): return {}
 
 	# set up vars
 	year, month = time.localtime()[:2]
@@ -26,12 +25,13 @@ def archive_dict():
 		start, end = 12, 0
 		if y == year: start = month
 		if y == fyear: end = fmonth-1
+
 		archive_dict[y] = {}
 
 		for m in range(start, end, -1):
-			archive_dict[y][month_name[m]] = []
+			archive_dict[y][m] = []
 
 	for post in posts:
-		archive_dict[post.created.year][month_name[post.created.month]].append(post)
+		archive_dict[post.created.year][post.created.month].append(post)
 
 	return { 'archive_dict' : archive_dict }

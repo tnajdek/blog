@@ -71,28 +71,14 @@
 				  <!--Body content-->
 				  <div class="content">
 					{% block content %}
-					{% endblock %}				  
+					{% endblock %}		  
 				  </div>
 				</div>
 				<div class="span3 margin-left-10">
-				  <!--Sidebar content-->
-				  <div class="module archive">
-				  	<h4>Archive</h4>
-				  	<ul>
-				  		<li> <a href=""> Decemeber (10) </a> </li>
-				  		<li> November (9) </li>
-				  		<li> October (9) </li>
-				  		<li> Septemeber (9) </li>
-				  		<li> August (9) </li>
-				  		<li> July (9) </li>
-				  		<li> June (9) </li>
-				  		<li> May (9) </li>
-				  		<li> April (9) </li>
-				  		<li> March (9) </li>
-				  		<li> February (9) </li>
-				  		<li> January (9) </li>
-				  	</ul>
-				  </div>
+				  <!--Sidebar content Archive -->
+				{% load archive_dict %}
+					{% archive_dict %}
+
 				</div>
 			</div>
 		</div> <!-- /container -->

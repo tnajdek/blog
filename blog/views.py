@@ -1,4 +1,5 @@
 import simplejson as json
+import time
 
 from django.core import serializers
 from django import http
@@ -8,6 +9,7 @@ from django.template import Context, RequestContext
 from datetime import datetime
 from django.views.generic.list_detail import object_list
 
+from calendar import month_name
 from blog.forms import CommentForm
 
 def index(request):
@@ -23,7 +25,6 @@ def view_blog(request, slug):
 	
 def tagpage(request, tag):
 	posts = Post.objects.filter(tags__name=tag)
-	context = {"posts":posts, "tag":tag}
 	return render_to_response("tagpage.html", {"posts":posts, "tag":tag}, context_instance=RequestContext(request))
 
 def add_comment(request, post_id):

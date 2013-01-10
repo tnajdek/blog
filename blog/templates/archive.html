@@ -1,0 +1,33 @@
+<!-- {% load archive_dict %} -->
+<div class="module archive">
+
+	{% for year, months_dict in archive_dict.iteritems %}
+		{{year}}
+		<ul>
+			{% for month, posts in months_dict.iteritems %}
+			{% if posts %}
+				<li class="month"><i class="icon-chevron-right">&nbsp; </i>{{month}} ({{posts|length}})</li>
+					<ul class="posts" style="display:none;">
+						{% for post in posts %}
+							<li class="post">
+								<a href="{{post.get_absolute_url}}" title="{{post.title}}">{{post.title|truncatewords:'3'}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+			{% endif %}		
+			{% endfor %}
+		</ul>
+	{% endfor %}
+	<script>
+		(function(){
+
+			$('li.month').click(function(i){
+				className = $(this).find('i').attr('class');
+				x = className.indexOf('down') !== -1 ? 'icon-chevron-right': 'icon-chevron-down';  
+				$(this).find('i').attr('class', x)
+				$(this).next('ul.posts').slideToggle('slow')
+			});
+
+		})();
+	</script>
+</div>

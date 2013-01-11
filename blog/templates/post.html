@@ -63,17 +63,37 @@
 {% if form %}
 
 	<form action="{% url blog.views.add_comment post.id %}" method="post" class="form-horizontal">
-		{% csrf_token %}
+		<fieldset>
+		<legend>Add a new comment</legend>
+			{% csrf_token %}
+	<!-- 		{{form}}
+			{{ form.as_p }} -->
 
-		{{ form.as_p }}
+			{% for field in form %}
+				{% ifequal field.name 'body' %}
+					<p>
+						{{field}}
+					</p>
+				{% endifequal %}
 
-		<button class="btn" type="submit" disabled>Post</button>
+				{% ifequal field.name 'author' %}
+					<p>
+						{{field}}
+						<input class="span2" type="text" placeholder="Email">
+						<input class="span2" type="text" placeholder="Website">
+					</p>
+				{% endifequal %}
 
+			{% endfor %}
+			<p>
+				<button class="btn btn-small" type="submit" disabled>Post Comment</button>
+			</p>
+		</fieldset>
 	</form>
 
 {% endif %}
 
-<script type="text/javascript">
+<script>
 
 	require(["comment"], function(c) {
 		var c = new c();

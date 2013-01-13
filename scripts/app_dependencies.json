@@ -1,0 +1,9 @@
+{
+	"dependencies": [
+		"yolk",
+		"django",
+		"django-taggit",
+		"django-grappelli",
+		"django-templatetag-handlebars"
+	]
+}

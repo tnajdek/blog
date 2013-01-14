@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %} {{ post.title }} {% endblock %}
 {% block content %}
+{% load custom_tags %}
 {% load templatetag_handlebars %}
 
 <div class="blogitem">
@@ -16,7 +17,7 @@
 				{% endfor %}
 			</span>
 			<span class="meta comments">
-				<i class="icon-comment"></i> 
+				<i class="icon-comments"></i> 
 				{% if comments %}
 					{{comments|length}} comment{{ comments|pluralize }}
 				{% else %}
@@ -36,11 +37,16 @@
 		{% if comments %}
 				{% for comment in comments %}
 					<li class="comment">
-						<div class="time">
-							{{ comment.posted_on }} | {{ comment.author }}
-						</div>
-						<div class="body">
-							{{ comment.body|linebreaks }}
+						<div>
+							<span class="name">
+								{{ comment.author }}
+							</span>
+							<span class="">
+								{{ comment.posted_on|prettify_date }}
+							</span>
+							<p class="comment-body">
+								{{ comment.body }}
+							</p>
 						</div>
 					</li>
 				{% endfor %}
@@ -49,7 +55,7 @@
 
 	{% tplhandlebars "comment-template" %}
 		<li>
-			<div class="time">
+			<div class="name">
 				{{ posted_on }} | {{ author }}
 			</div>
 			<div class="body">

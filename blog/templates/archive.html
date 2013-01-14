@@ -6,7 +6,7 @@
 			<ul>
 				{% for month, posts in months_dict.iteritems %}
 					{% if posts %}
-						<li class="month"><i class="icon-chevron-right">&nbsp; </i>{{month|month_name}} ({{posts|length}})</li>
+						<li class="month"><i class="icon-caret-right">&nbsp; </i>{{month|month_name}} ({{posts|length}})</li>
 							<ul class="posts" style="display:none;">
 								{% for post in posts %}
 									<li class="post">
@@ -26,7 +26,7 @@
 						className = $(this).find('i').attr('class');
 
 					$(this).find('i').attr('class', function(){
-						return className.indexOf('down') !== -1 ? 'icon-chevron-right': 'icon-chevron-down';
+						return className.indexOf('down') !== -1 ? 'icon-caret-right': 'icon-caret-down';
 					});
 					$(this).next('ul.posts').slideToggle('slow')
 				});

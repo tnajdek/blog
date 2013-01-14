@@ -57,8 +57,8 @@ def prettify_time_dry(time_diff_in_seconds):
 	ret = ''
 	for index, item in enumerate(alpha_list):
 
-		for time_unit in alpha_list[index]:
-			unit_operand = alpha_list[index][time_unit]
+		for time_unit in item:
+			unit_operand = item[time_unit]
 
 			if time_diff_in_seconds < unit_operand:
 				ret = 'a moment ago'

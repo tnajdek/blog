@@ -51,6 +51,17 @@ textarea.custom {
 	margin-right: 0;	
 }
 
+.module ul {
+	margin-left: 12px;
+}
+
+.module ul li {
+	padding: 3px 0;
+}
+
+.module ul li a {
+	margin-left: 6px;
+}
 /*.margin-left-10 {
 	width: 229px;
 	margin-left: 0px;
@@ -99,13 +110,12 @@ span.meta {
 
 p.blog_meta {
 	margin: 7px 0 12px 0;
-	font-size: 12px;
 }
 
 ul.comments-list {
 	margin-left: 0;
-	/*list-style: none;*/
-}
+	border: 1px solid red;
+	width: 400px;}
 
 .separator {
 	text-align: center;
@@ -113,4 +123,22 @@ ul.comments-list {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	margin:1.5em 0;
 	text-shadow: white 0px 1px 0px;*/
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+li.comment p.comment-body {
+	margin-top: 3px;
+}
+
+li.comment span.name {
+	color: #08C;
+	font-family: "helvetica neue"
+	font-weight: bold;
 }

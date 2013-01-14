@@ -1,6 +1,7 @@
 import simplejson as json
 import time
 
+from blog.templatetags import custom_tags
 from django.core import serializers
 from django import http
 from blog.models import Post, Comment
@@ -42,7 +43,7 @@ def add_comment(request, post_id):
 				# comment_object = serializers.serialize('json', [Comment.objects.get(pk=comment.id)], ensure_ascii=False)
 				comment_object['author'] = comment.author
 				comment_object['body'] = comment.body
-				comment_object['posted_on'] = comment.posted_on.strftime('%b. %d, %Y, %I:%M %p') 
+				comment_object['posted_on'] = custom_tags.prettify_date(comment.posted_on) #comment.posted_on.strftime('%b. %d, %Y, %I:%M %p') 
 				resp = {
 					'error': False,
 					'data':  comment_object, # comment_object[1:-1]

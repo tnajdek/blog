@@ -33,7 +33,7 @@ def total_seconds(td):
     return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) / 10**6
 
 @register.filter
-def prettify_time(timestamp):
+def prettify_date(timestamp):
 
 	time_unit_list = [{'minute': MINUTE}, {'hour': HOUR}, {'day': DAY}, {'week': WEEK}, {'month': MONTH}, {'year': YEAR}]
 	ret = ''

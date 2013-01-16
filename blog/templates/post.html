@@ -42,6 +42,7 @@
 								{{ comment.author }}
 							</span>
 							<span class="">
+								{{ comment.posted_on }}
 								{{ comment.posted_on|prettify_date }}
 							</span>
 							<p class="comment-body">
@@ -77,23 +78,25 @@
 
 			{% for field in form %}
 				{% ifequal field.name 'body' %}
-					<p>
+					<div class="controls">
 						{{field}}
-					</p>
+					</div>
 				{% endifequal %}
 
 				{% ifequal field.name 'author' %}
-					<p>
+					<div class="controls">
 						{{field}}
-						<input class="span2" type="text" placeholder="Email">
-						<input class="span2" type="text" placeholder="Website">
-					</p>
+				{% endifequal %}
+
+				{% ifequal field.name 'email' %}
+						{{field}}
+					</div>
 				{% endifequal %}
 
 			{% endfor %}
-			<p>
+			<div class="controls">
 				<button class="btn btn-small" type="submit" disabled>Post Comment</button>
-			</p>
+			</div>
 		</fieldset>
 	</form>
 

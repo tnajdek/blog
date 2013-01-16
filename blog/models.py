@@ -21,5 +21,6 @@ class Post(models.Model):
 class Comment(models.Model):
 	author = models.CharField(max_length=25)
 	body = models.TextField()
+	email = models.EmailField(blank=True)
 	posted_on = models.DateTimeField(auto_now_add=True)
 	post = models.ForeignKey(Post)

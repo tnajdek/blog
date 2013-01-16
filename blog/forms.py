@@ -7,8 +7,9 @@ class CommentForm(ModelForm):
 	
 	class Meta:
 		model = Comment
-		fields = ('body','author')
+		fields = ('body','author','email')
 		widgets = {
-			'author': TextInput({'placeholder': 'Name', 'class':'input-medium span2'}),
+			'email': TextInput({'placeholder': 'Email'}),
+			'author': TextInput({'placeholder': 'Name', 'class':'input-medium'}),
             'body': Textarea(attrs={'rows': 4, 'placeholder': 'Add a comment . . .', 'class': 'custom'})
         }

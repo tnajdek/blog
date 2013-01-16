@@ -42,24 +42,24 @@ def prettify_date(timestamp):
 	post_timestamp = timestamp.replace(tzinfo=None) # strip off timezone before subtracting else you get this "can't subtract offset-naive and offset-aware datetimes"
 	timestamp_difference = current_timestamp - post_timestamp
 
-	timestamp_difference_in_seconds = timestamp_difference.total_seconds() #total_seconds(timestamp_difference)
+	timestamp_difference_in_seconds = total_seconds(timestamp_difference) #total_seconds(timestamp_difference)
 	
 	if timestamp_difference_in_seconds < MINUTE:
-		return 'just now'
+		return 'a moment ago'
 	elif timestamp_difference_in_seconds < HOUR:
 		pretty_value = int(round(timestamp_difference_in_seconds / MINUTE))
-		return 'about {0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'minute')) 
+		return '{0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'minute')) 
 	elif timestamp_difference_in_seconds < DAY:
 		pretty_value = int(round(timestamp_difference_in_seconds / HOUR))
-		return 'about {0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'hour'))
+		return '{0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'hour'))
 	elif timestamp_difference_in_seconds < WEEK:
 		pretty_value = int(round(timestamp_difference_in_seconds / DAY))
-		return 'about {0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'day'))
+		return '{0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'day'))
 	elif timestamp_difference_in_seconds < MONTH:
 		pretty_value = int(round(timestamp_difference_in_seconds / WEEK))
-		return 'about {0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'week'))
+		return '{0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'week'))
 	elif timestamp_difference_in_seconds < YEAR:
 		pretty_value = int(round(timestamp_difference_in_seconds / MONTH))
-		return 'about {0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'month'))
+		return '{0} {1} ago'.format(pretty_value, pluralize(pretty_value, 'month'))
 	else:
 		return 'over a year ago'

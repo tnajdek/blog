@@ -41,13 +41,17 @@
 							<span class="name">
 								{{ comment.author }}
 							</span>
-							<span class="">
-								{{ comment.posted_on }}
+							<span class="right">
 								{{ comment.posted_on|prettify_date }}
 							</span>
 							<p class="comment-body">
 								{{ comment.body }}
 							</p>
+							<div class="actions">
+								<a href="" data-placement="top" rel="tooltip" title="Reply"><i class="icon-reply"></i></a>
+								<a href="" data-placement="top" rel="tooltip" title="Like"><i class="icon-thumbs-up"></i></a>
+								<a href="" data-placement="top" rel="tooltip" title="Dislike"><i class="icon-thumbs-down"></i></a>
+							</div>
 						</div>
 					</li>
 				{% endfor %}
@@ -55,12 +59,17 @@
 	</ul>
 
 	{% tplhandlebars "comment-template" %}
-		<li>
-			<div class="name">
-				{{ posted_on }} | {{ author }}
-			</div>
-			<div class="body">
-				{{ body }}
+		<li class="comment">
+			<div>
+				<span class="name">
+					{{ author }}
+				</span>
+				<span class="right">
+					{{ posted_on }}
+				</span>
+				<p class="comment-body">
+					{{ body }}
+				</p>
 			</div>
 		</li>
 	{% endtplhandlebars %}
@@ -104,8 +113,9 @@
 
 <script>
 
-	require(["comment"], function(c) {
+	require(["comment", "libs/bootstrap.min"], function(c) {
 		var c = new c();
+		$('[rel=tooltip]').tooltip() 
 	});
 
 </script>

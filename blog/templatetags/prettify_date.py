@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os, sys, time, datetime, math
+import datetime
 import cProfile
 
 MINUTE = 60
@@ -25,6 +25,9 @@ def pluralize(value, string):
 
 # un-DRY version, better readability but with IF-ELSE block we could do without 
 def prettify_time(time_diff_in_seconds):
+	"""
+	aasfasfasf
+	"""
 
 	if time_diff_in_seconds < MINUTE:
 		return 'just now'

@@ -116,7 +116,6 @@ p.blog_meta {
 
 ul.comments-list {
 	margin-left: 0;
-	border: 1px solid red;
 	width: 400px;}
 
 .separator {
@@ -134,13 +133,35 @@ ul.comments-list {
 .right {
 	float: right;
 }
-
-li.comment p.comment-body {
-	margin-top: 3px;
+ul.comments-list li.comment {
+	margin: 20px 0;
 }
 
+li.comment p.comment-body {
+	margin: 10px 0;
+	text-align: justify;
+}
+
+li.comment .actions a {
+	text-decoration: none;
+}
+
+li.comment .actions a > i.icon-thumbs-down {
+	color: red;
+}
+
+li.comment .actions a > i.icon-thumbs-up {
+	color: green;
+}
+
+/*li.comment .actions a > i.icon- {
+	color: green;
+}*/
+
 li.comment span.name {
+	text-transform:capitalize;
 	color: #08C;
-	font-family: "helvetica neue"
+	font-family: "Arial";
+	font-size: 12px;
 	font-weight: bold;
 }

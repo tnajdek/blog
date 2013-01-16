@@ -1,5 +1,7 @@
 /* Bootstrap overrides */
-
+.form-horizontal .controls {
+    margin: 10px 0;
+}
 /* custom */
 
 body {

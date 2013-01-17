@@ -4,6 +4,7 @@
 		"django",
 		"django-taggit",
 		"django-grappelli",
-		"django-templatetag-handlebars"
+		"django-templatetag-handlebars",
+		"simplejson"
 	]
 }

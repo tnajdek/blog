@@ -9,7 +9,8 @@ WEEK = DAY * 7
 YEAR = DAY * 365
 MONTH = YEAR / 12
 
-some_day = datetime.datetime(2012, 7, 1, 16, 55, 45)
+# some_day = datetime.datetime(2012, 7, 1, 16, 55, 45)
+some_day = datetime.datetime.now() - datetime.timedelta(hours=5)
 
 now = datetime.datetime.now()
 time_diff = now - some_day
